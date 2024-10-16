@@ -228,14 +228,31 @@
       <div class="column is-four-fifths"> -->
         <!-- <h2 class="title is-3">Windows Agent Arena benchmark</h2> -->
         <div class="content has-text-justified">
-          <p>Large language models (LLMs) show remarkable potential to act as computer agents, enhancing human productivity and software accessibility in multi-modal tasks that require planning and reasoning. However, measuring agent performance in realistic environments remains a challenge since:</p>
-          <ul>
-            <li>(i) most benchmarks are limited to specific modalities or domains (e.g., text-only, web navigation, Q&A, coding) and</li>
-            <li>(ii) full benchmark evaluations are slow (on the order of magnitude of days) given the multi-step sequential nature of tasks.</li>
-          </ul>
-          <p>To address these challenges, we introduce the <strong>WindowsAgentArena</strong> (WAA): a reproducible, <em>general</em> environment focusing exclusively on the Windows operating system (OS) where agents can operate freely within a real Windows OS and use the same wide range of applications, tools, and web browsers available to human users when solving tasks. We adapt the <a href="https://os-world.github.io/">OSWorld</a> framework to create 150+ diverse Windows tasks across representative domains that require agent abilities in planning, screen understanding, and tool usage. Our benchmark is also <em>scalable</em> and can be seamlessly parallelized in Azure for a full benchmark evaluation in as little as <strong>20 minutes</strong>.</p>
-          <p>To demonstrate WAA's capabilities, we also introduce a new multi-modal agent, <strong>Navi</strong>, showing it can achieve a success rate of <strong>19.5%</strong>, compared to <strong>74.5%</strong> for human performance. In addition, we show Navi's strong performance on another popular web-based benchmark, Mind2Web.</p>
-          <p>We offer extensive quantitative and qualitative analysis of Navi's performance, and provide insights into the challenges and opportunities for future research in agent development and data generation using WAA.</p>
+          <p>Humans often use videos to complete daily tasks, whether to learn from tutorials or retrieve informa-
+            tion from within one or several videos. As we build AI assistants, these multimodal agents must also
+            possess similar capabilities to understand and process videos to accomplish tasks or learn how to
+            accomplish a workflow, plan, and make decisions.</p>
+          <p>However, many existing agent benchmarks neglect long-context video understanding, instead focusing on text or static image inputs.</p>
+          <p>To address this gap, we present <strong>VideoWebArena</strong>, a novel, open-source video-based benchmark that evaluates multimodal models' agentic ability to process, understand, and utilize long-context video inputs to accomplish various tasks. </p>
+          <p>ideoWA consists of 2,021 web agent
+            tasks based on manually crafted video tutorials, which total almost four hours of
+            content. For our benchmark, we define a taxonomy of long-context video-based
+            agent tasks with two main areas of focus: skill retention and factual retention.
+            While skill retention tasks evaluate whether an agent can use a given human demon-
+            stration to complete a task efficiently, the factual retention task evaluates whether
+            an agent can retrieve instruction-relevant information from a video to complete
+            a task.</p>
+          <p>We evaluate several video-capable state-of-the-art LLMs, namely GPT-4o and Gemini 1.5
+            Pro, on our benchmark, providing an overview of these models' current long-context video
+            understanding capabilities. Our results show that while these models can serve in a limited
+            capacity as video-capable agents, these models are still a far reach from human levels of
+            performance, highlighting a wide gap in the information retrieval and agentic abilities of
+            current state-of-the-art long-context models.</p>
+          <p>Our work
+            highlights the need to improve the agentic abilities of long-context multimodal
+            models and provides a testbed for future development with long-context video
+            agents</p>
+
           <!-- <p>Code and baseline models: <a href="https://github.com/microsoft/WindowsAgentArena">github.com/microsoft/WindowsAgentArena</a>.</p> -->
         </div>
       <!-- </div>
