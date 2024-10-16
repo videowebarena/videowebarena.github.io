@@ -391,7 +391,12 @@ the run.
     <div class="content has-text-centered">
       <img src="./static/images/examples_refit.png" height="40" alt="Tasks">
     </div>
-
+    <p>
+      We use chain-of-thought prompting to instruct our agent, Navi, to reason about
+      the current state of the computer, its own past actions, and decide on the most appropriate next action. 
+      Our agent receive as input the title of the current foreground window, titles for all other windows or browser tabs currently open, and a representation of the current screen. We consider several methods to process the screen representation
+      for the agent as input and create Set-of-Marks (SoMs):
+      </p>
   </div>
 </section>
 
@@ -401,9 +406,6 @@ the run.
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths"> -->
         <h2 class="title is-3">Baseline Agents</h2>
-        <div class="content has-text-centered">
-          <img src="./static/images/agent_refit.png" height="15" alt="Agent Example">
-        </div>
         <div class="content has-text-justified">
           <!-- <p>
             We present the first method capable of photorealistically reconstructing a non-rigidly
@@ -425,6 +427,9 @@ the run.
           <p>
           Below you can see a step-by-step example of Navi's reasoning process and screen parsing during a task:
           </p>
+          <div class="content has-text-centered">
+            <img src="./static/images/agent_refit.png" height="15" alt="Agent Example">
+          </div>
         </div>
       <!-- </div>
     </div> -->
