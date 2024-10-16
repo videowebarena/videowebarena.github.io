@@ -34,7 +34,11 @@
         width: 80%; /* Adjust the width as needed */
         margin: 0 auto;
     }
-
+    .publication-title {
+    width: 100%;
+    text-align: center; /* Optional: you can keep it centered or change it to left */
+    white-space: nowrap; /* Prevent line breaks */
+}
     .banner-image {
         display: block;
         width: 140px;
@@ -56,16 +60,7 @@
         margin-left: 140px;
         margin-right: 140px
     }
-  
-    .publication-title {
-    width: 100%;
-    text-align: left;
-    white-space: normal;
-  }
 
-  .container.is-max-desktop {
-    max-width: 90%; /* Increase this to allow more space */
-}
     @media (min-width: 768px) {
         .responsive-container {
             justify-content: center;
@@ -92,16 +87,9 @@
             margin-left: 140px;
             margin-right: 140px;
         }
-        .publication-title {
-        font-size: 2.5rem; /* Adjust this as needed */
-}
     }
 
     @media (max-width: 768px) {
-
-      .publication-title {
-        font-size: 1.8rem; /* Smaller font size for narrow screens */
-    }
         .responsive-container {
             flex-direction: column;
             align-items: center;
