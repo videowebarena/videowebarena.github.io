@@ -233,10 +233,10 @@
             accomplish a workflow, plan, and make decisions.</p>
           <p>However, many existing agent benchmarks neglect long-context video understanding, instead focusing on text or static image inputs.</p>
           <p>To address this gap, we present <strong>VideoWebArena</strong>, a novel, open-source video-based benchmark that evaluates multimodal models' agentic ability to process, understand, and utilize long-context video inputs to accomplish various tasks. </p>
-          <p>VideoWebArena consists of 2,021 web agent
-            tasks based on manually crafted video tutorials, which total almost four hours of
+          <p>VideoWebArena consists of <strong>2,021 web agent
+            tasks</strong> based on <strong>74 manually crafted video tutorials</strong>, which total almost four hours of
             content. For our benchmark, we define a taxonomy of long-context video-based
-            agent tasks with two main areas of focus: skill retention and factual retention.
+            agent tasks with two main areas of focus: <strong>skill retention and factual retention</strong>.
             While skill retention tasks evaluate whether an agent can use a given human demon-
             stration to complete a task efficiently, the factual retention task evaluates whether
             an agent can retrieve instruction-relevant information from a video to complete
@@ -324,10 +324,10 @@
         <h2 class="title is-3">Environment and Tasks</h2>
         <div class="content has-text-justified">
           <p>
-            VideoWebArena centers around six key thematic environments created by VisualWebArena and WebArena: Reddit, Classifieds, Shopping, Shopping Admin, Map, and Gitlab. These domains' websites are locally hosted as the docker images for each website are publicly available online. There is an Amazon Machine Image and instructions dedicated to hosting these websites on an EC2 instance; we refer readers to the codebase for further information. By doing this, we can make our benchmark realistic and reproducible, leveraging data and code from real and popular websites on the internet. We refer to WebArena and VisualWebArena for more information on each site and their setup.
+            VideoWebArena centers around six key thematic environments created by VisualWebArena and WebArena: <strong>Reddit, Classifieds, Shopping, Shopping Admin, Map, and Gitlab</strong>. These domains' websites are locally hosted as the docker images for each website are publicly available online. There is an Amazon Machine Image and instructions dedicated to hosting these websites on an EC2 instance; we refer readers to the codebase for further information. By doing this, we can make our benchmark realistic and reproducible, leveraging data and code from real and popular websites on the internet. We refer to WebArena and VisualWebArena for more information on each site and their setup.
           </p>
           <p>
-            The authors of this paper created 74 unique videos to pair with 2,021 tasks, totaling almost 4 hours of video content ---all of our videos are tutorials based on tasks in WebArena and VisualWebArena. We provide our videos online through a <a href = https://www.youtube.com/@webarenawarrior>Youtube Channel</a> and a <a href = https://drive.google.com/file/d/17DwmsM7KzBWyz1BN1aq7NHDvgcTIrCgx/view>Google Drive link</a> containing the zip file of all the videos. We formulated these videos by accumulating all the feasible tasks in WebArena and VisualWebArena, and then filming task tutorials on our personal computers. 
+            The authors of this paper created <strong>74 unique videos</strong> to pair with <strong>2,021 tasks</strong>, totaling almost 4 hours of video content ---all of our videos are tutorials based on tasks in WebArena and VisualWebArena. We provide our videos online through a <a href = https://www.youtube.com/@webarenawarrior>Youtube Channel</a> and a <a href = https://drive.google.com/file/d/17DwmsM7KzBWyz1BN1aq7NHDvgcTIrCgx/view>Google Drive link</a> containing the zip file of all the videos. We formulated these videos by accumulating all the feasible tasks in WebArena and VisualWebArena, and then filming task tutorials on our personal computers. 
           </p>
 
           <p>We provide a breakdown of the videos and tasks below. More information about the task taxonomy and difficulties can be found in the following sections.</p>
@@ -367,31 +367,31 @@
             deforming scene using photos/videos captured casually from mobile phones.
           </p> -->
           <p>
-            The taxonomy covers two subsets of tasks --- skill retention and factual retention--- inspired by real-world use cases. 
+            The taxonomy covers two subsets of tasks --- <strong>skill retention and factual retention</strong>--- inspired by real-world use cases. 
             <ul>
-              <li>Skill Retention Tasks test the ability to learn from and use a given human demonstration to efficiently complete a task. For example, using YouTube tutorials or screen recordings of expert demonstrations to learn how to perform a task is a form of skill retention.</li>
-              <li>Factual Retention Tasks test the ability to retrieve information relevant to a user's specific question/task present in a video that may not be the video's main focus (e.g., an incidental detail). 
+              <li><strong>Skill Retention </strong>Tasks test the ability to learn from and use a given human demonstration to efficiently complete a task. For example, using YouTube tutorials or screen recordings of expert demonstrations to learn how to perform a task is a form of skill retention.</li>
+              <li><strong>Factual Retention </strong>Tasks test the ability to retrieve information relevant to a user's specific question/task present in a video that may not be the video's main focus (e.g., an incidental detail). 
                 For example, one might want to buy the shoes a particular NBA player is wearing that are shown within a short duration of a much longer basketball highlights video. </li>
             </ul>
           </p>
           <p>
             We map each of our video tutorials to the respective tasks in the WebArena and VisualWebArena task set to create 1,621 skill retention tasks. Thus, each WA/VWA task has an expert human demonstration attached to it. An agent should be able to process the video tutorial and complete the task at hand at a higher rate than without the video.
           </p>
-          <p>We created 400 original factual retention tasks based on these
+          <p>We created <strong>400 original factual retention tasks </strong> based on these
             same tutorials. The authors of each factual retention task also are tasked with creating <strong>intermediate intents</strong> that test if the model can extract the information necessary to complete the
-            task. Therefore, each factual retention task has a Q/A pair, where the agent is prompted with the video and a task-related question. This serves as a intermediate checkpoint to evaluate the model's ability to process information from the video, unrelated to generating actions or acting in the environment. Skill Retention tasks do not have intermediate intents as we deemed learning from human demonstrations do not requires needle-in-the-haystack type of information retrieval.</p>
+            task. Therefore, each factual retention task has a <strong>Q/A pair</strong>, where the agent is prompted with the video and a task-related question. This serves as a intermediate checkpoint to evaluate the model's ability to process information from the video, unrelated to generating actions or acting in the environment. Skill Retention tasks do not have intermediate intents as we deemed learning from human demonstrations do not requires needle-in-the-haystack type of information retrieval.</p>
 
           <p>
-            Furthermore, we define types of factual retention tasks below:
+            Furthermore, we define 4 types of factual retention tasks below:
           </p>
           <ul>
-            <li>Visual
-              Perception (Tasks that require OCR, Spatial Reasoning)</li>
-            <li>Audio Perception</li>
-            <li> Full Video Understanding (i.e., tasks
-              that require information across several parts of the video)</li>
-            <li>Temporal Reasoning (i.e., tasks
-              that require understanding the video with respect to time)</li>
+            <li><strong>Visual
+              Perception (Tasks that require OCR, Spatial Reasoning)</strong></li>
+            <li><strong>Audio Perception</strong></li>
+            <li><strong>Full Video Understanding (i.e., tasks
+              that require information across several parts of the video)</strong></li>
+            <li><strong>Temporal Reasoning (i.e., tasks
+              that require understanding the video with respect to time)</strong></li>
           </ul>
 
           <p>We provide examples of each task in our defined taxonomy below.</p>
@@ -404,12 +404,12 @@
       <img src="./static/images/examples_refit.png" height="40" alt="Tasks">
     </div>
 
-    <p>We also define an agentic and video difficulty for each factual retention task. The agentic difficulty for each task signifies the complexity of the
+    <p>We also define an agentic and video difficulty for each factual retention task. The <strong>agentic difficulty</strong> for each task signifies the complexity of the
       action sequence needed to complete an intent successfully. For agentic difficulty, we classify a task
       as easy if it can be completed in 1-3 steps, medium if it can be completed in 4-9 steps, and hard if it
       can be completed in more than 9 steps. This classification is adopted from VisualWebArena.</p>
     <br>
-    <p>We provide video difficulty ratings for all intermediate intents, distributed between easy,
+    <p>We provide <strong>video difficulty</strong> ratings for all intermediate intents, distributed between easy,
       medium, and hard. The video difficulty ratings signify the complexity of returning the correct answer
       for a given task's intermediate intent. Easy tasks require returning one piece of information and can
       be solved with less than 3 frames, medium tasks require returning 2 to 3 things and can be solved
@@ -433,9 +433,9 @@
             We define a set of baseline agents using proprietary LLMs as the backbone. At each step, the agent is given the task objective, 2 in-context examples, current state (defined by Set-of-Marks), and the input video to the objective as context to generate one action. This follows the Set-of-Marks agent proposed in VisualWebArena.
           </p>
           <ul>
-            <li>Video In-Context Agent: An agent that takes the MP4 tutorial in-context (only available with Gemini models).</li>
-            <li>Video Frames In-Context Agent: An agent that takes evenly split frames and the transcripted audio in-context.</li>
-            <li>Video Summary Agent: An agent that takes no visual modality as input. The agent takes a summary of the video generated before the task in-context.</li>
+            <li><strong>Video In-Context Agent</strong>: An agent that takes the MP4 tutorial in-context (only available with Gemini models).</li>
+            <li><strong>Video Frames In-Context Agent</strong>: An agent that takes evenly split frames and the transcripted audio in-context.</li>
+            <li><strong>Video Summary Agent</strong>: An agent that takes no visual modality as input. The agent takes a summary of the video generated before the task in-context.</li>
           </ul>
           <p>
           Below you can see the framework for our baseline POMDP video agents.
