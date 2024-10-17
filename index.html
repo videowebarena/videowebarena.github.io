@@ -368,20 +368,18 @@
           </p> -->
           <p>
             The taxonomy covers two subsets of tasks --- skill retention and factual retention--- inspired by real-world use cases. 
-This categorization is inspired by real-world use cases and tasks where information needs to be extracted from from videos. 
-We define skill retention as the ability to learn from and use a given human demonstration to efficiently complete a task. For example, using YouTube tutorials or screen recordings of expert demonstrations to learn how to perform a task is a form of skill retention.
-On the other hand, 
-factual retention is the ability to retrieve information relevant to a user's specific question/task present in a video that may not be the video's main focus (e.g., an incidental detail). 
-For example, one might want to buy the shoes a particular NBA player is wearing that are shown within a short duration of a much longer basketball highlights video. 
-To complete the task, 
-the model must extract not only information about the specific player but also their shoes, even if this information is secondary to the main content of the video.
+            <uli>
+              <li>Skill Retention Tasks test the ability to learn from and use a given human demonstration to efficiently complete a task. For example, using YouTube tutorials or screen recordings of expert demonstrations to learn how to perform a task is a form of skill retention.</li>
+              <li>Factual Retention Tasks test the ability to retrieve information relevant to a user's specific question/task present in a video that may not be the video's main focus (e.g., an incidental detail). 
+                For example, one might want to buy the shoes a particular NBA player is wearing that are shown within a short duration of a much longer basketball highlights video. </li>
+            </uli>
           </p>
           <p>
             We map each of our video tutorials to the respective tasks in the WebArena and VisualWebArena task set to create 1,621 skill retention tasks. Thus, each WA/VWA task has an expert human demonstration attached to it. An agent should be able to process the video tutorial and complete the task at hand at a higher rate than without the video.
           </p>
           <p>We created 400 original factual retention tasks based on these
-            same tutorials. The authors of each factual retention task also are tasked with creating \<strong>intermediate intents</strong> that test if the model can extract the information necessary to complete the
-            task. Each factual retention task also has a Q/A pair, where the agent is prompted with the video and a task-related question. This serves as a intermediate checkpoint to evaluate the model's ability to process information from the video, unrelated to generating actions or acting in the environment. Skill Retention tasks do not have intermediate intents as we deemed learning from human demonstrations do not requires needle-in-the-haystack type of information retrieval.</p>
+            same tutorials. The authors of each factual retention task also are tasked with creating <strong>intermediate intents</strong> that test if the model can extract the information necessary to complete the
+            task. Therefore, each factual retention task has a Q/A pair, where the agent is prompted with the video and a task-related question. This serves as a intermediate checkpoint to evaluate the model's ability to process information from the video, unrelated to generating actions or acting in the environment. Skill Retention tasks do not have intermediate intents as we deemed learning from human demonstrations do not requires needle-in-the-haystack type of information retrieval.</p>
 
           <p>
             Furthermore, we define types of factual retention tasks below:
@@ -400,7 +398,7 @@ the model must extract not only information about the specific player but also t
             action sequence needed to complete an intent successfully. For agentic difficulty, we classify a task
             as easy if it can be completed in 1-3 steps, medium if it can be completed in 4-9 steps, and hard if it
             can be completed in more than 9 steps. This classification is adopted from VisualWebArena.</p>
-            
+
           <p>Additionally, we provide video difficulty ratings for all intermediate intents, distributed between easy,
             medium, and hard. The video difficulty ratings signify the complexity of returning the correct answer
             for a given task's intermediate intent. Easy tasks require returning one piece of information and can
@@ -417,12 +415,6 @@ the model must extract not only information about the specific player but also t
     <div class="content has-text-centered">
       <img src="./static/images/examples_refit.png" height="40" alt="Tasks">
     </div>
-    <p>
-      We use chain-of-thought prompting to instruct our agent, Navi, to reason about
-      the current state of the computer, its own past actions, and decide on the most appropriate next action. 
-      Our agent receive as input the title of the current foreground window, titles for all other windows or browser tabs currently open, and a representation of the current screen. We consider several methods to process the screen representation
-      for the agent as input and create Set-of-Marks (SoMs):
-      </p>
   </div>
 </section>
 
