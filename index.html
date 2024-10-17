@@ -430,7 +430,7 @@
             deforming scene using photos/videos captured casually from mobile phones.
           </p> -->
           <p>
-          We define a set of baseline agents using proprietary LLMs as the backbone. At each step, the agent is given the task objective, 2 in-context examples, current state, observation, and the input video to the objective as context to generate one action. 
+            We define a set of baseline agents using proprietary LLMs as the backbone. At each step, the agent is given the task objective, 2 in-context examples, current state (defined by Set-of-Marks), and the input video to the objective as context to generate one action. This follows the Set-of-Marks agent proposed in VisualWebArena.
           </p>
           <ul>
             <li>Video In-Context Agent: An agent that takes the MP4 tutorial in-context (only available with Gemini models).</li>
@@ -461,11 +461,9 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <p>
-          We benchmark several state-of-the-art visual-language model agent configurations. 
-          We find that all existing models achieve low performance in comparison to  human behavior, with large variance between domains.
-          </p>
-          <p>
-          The quality of the Set-of-Marks plays a crucial role in the agent's performance. Agents that rely only on pixel-based OCR and icon detection achieve lower performance than those that also use the UIA tree. We also find that Omniparser's icon captioning capability boots performance.
+          We benchmark serveral versions of the baseline agents we defined in the previous section along with human evaluation scores. We present the performances on the skill retention tasks below. Human performance shows tutorials should
+          help task performance success and efficiency. However, adding tutorials in-context to the model does
+          not necessarily help, but in fact hurts performance by a significant margin. This points to the idea that long-context agents cannot process the video information which creates negative noise while generating actions.
           </p>
         </div>
       <!-- </div>
@@ -477,20 +475,34 @@
       <img src="./static/images/skill_refit.png" height="200" alt="Results">
     </div>
 
-    <p>Factual Retention</p>
+    <p>We provice the evaluation results on our set of factual retention tasks below. We note several consistent trends across LLM
+      agent results. There is no winning baseline agent or model family across skill and factual retention
+      tasks. For factual retention tasks, the summary agent performs the best in task success at 13.3% while the 30 and 100 Frame GPT-4o Agent perform the best in intermediate intent success at 45.8%</p>
+
+    <p>Although intermediate scores tend to be higher than final scores, this does not necessarily translate to task success. This is a constant failure mode of the long-context agents, as
+      they can perform the necessary VQA to extract the necessary information for the task at hand but fall
+      short due to hallucinations, action grounding, and high-level planning errors.</p>
 
     <div class="content has-text-centered">
       <!-- insert image -->
       <img src="./static/images/fac_refit.png" height="200" alt="Results">
     </div>
 
-
+    <p>We provide further results on our factual retention task set with respect to task difficulties and task types below. We see the summary agent has
+      the best task performance, even without having any visual aspect of the video in context. However, it
+      lags behind in the intermediate VQA intents, as the video frame and video agents all perform very
+      similarly on intermediate tasks.</p>
 
     <div class="content has-text-centered">
       <!-- insert image -->
       <img src="./static/images/fac_refit2.png" height="200" alt="Results">
     </div>
 
+    <p>According to our experiments, the baseline agent does not perform
+      well on most of tasks compared with human performance. There is still a long way in developing
+      intelligent agents. For future work, it is important to analyze the failure cases explore better video
+      agent architectures with different LLMs on this benchmark. We hope our environment and benchmark
+      facilitate improvement and additional work on improving long-context multimodal agents.</p>
 
   </div>
 </section>
