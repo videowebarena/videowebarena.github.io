@@ -360,7 +360,7 @@
     <!-- Abstract. -->
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths"> -->
-        <h2 class="title is-3">Video Agent Task Taxonomy: Skill and Factual Retention</h2>
+        <h2 class="title is-3">Task Taxonomy: Skill and Factual Retention</h2>
         <div class="content has-text-justified">
           <!-- <p>
             We present the first method capable of photorealistically reconstructing a non-rigidly
@@ -430,21 +430,20 @@
             deforming scene using photos/videos captured casually from mobile phones.
           </p> -->
           <p>
-          We define a set of baseline agents using proprietary LLMs as the backbone,.
+          We define a set of baseline agents using proprietary LLMs as the backbone. At each step, the agent is given the task objective, 2 in-context examples, current state, observation, and the input video to the objective as context to generate one action. 
           </p>
           <ul>
-            <li>UIA tree parsing: extracts the visible elements from the Windows UI Automation tree</li>
-            <li>DOM tree parsing: extracts the visible elements from the DOM tree (browser only)</li>
-            <li>OCR: proprietary and open models (<a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>)</li>
-            <li>Icon and image detection: proprietary and open models (<a href="https://github.com/IDEA-Research/GroundingDINO">Grounding DINO</a>)</li>
-            <li><a href="https://arxiv.org/abs/2408.00203">OmniParser</a>: proprietary model that detects detects text, icons, and images and provides icon captioning</li>
+            <li>Video In-Context Agent: An agent that takes the MP4 tutorial in-context (only available with Gemini models).</li>
+            <li>Video Frames In-Context Agent: An agent that takes evenly split frames and the transcripted audio in-context.</li>
+            <li>Video Summary Agent: An agent that takes no visual modality as input. The agent takes a summary of the video generated before the task in-context.</li>
           </ul>
           <p>
-          Below you can see a step-by-step example of Navi's reasoning process and screen parsing during a task:
+          Below you can see the framework for our baseline POMDP video agents.
           </p>
           <div class="content has-text-centered">
             <img src="./static/images/agent_refit.png" height="15" alt="Agent Example">
           </div>
+          <p>We acknowledge the simple nature of our baseline agents. We hope our work encourages further work in this area and improvements in video agent architecture.</p>
         </div>
       <!-- </div>
     </div> -->
@@ -459,12 +458,8 @@
     <!-- Abstract. -->
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths"> -->
-        <h2 class="title is-3">Results:</h2>
+        <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
-          <!-- <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p> -->
           <p>
           We benchmark several state-of-the-art visual-language model agent configurations. 
           We find that all existing models achieve low performance in comparison to  human behavior, with large variance between domains.
@@ -482,6 +477,7 @@
       <img src="./static/images/skill_refit.png" height="200" alt="Results">
     </div>
 
+    <p>Factual Retention</p>
 
     <div class="content has-text-centered">
       <!-- insert image -->
