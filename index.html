@@ -367,22 +367,36 @@
             deforming scene using photos/videos captured casually from mobile phones.
           </p> -->
           <p>
-            We designed the infrastructure behind Windows Agent Arena to support flexible, local execution
-during the prototyping phase as well as scalable and secure cloud parallelization in Azure. The core
-of our system is a Docker container that hosts the Windows 11 VM. Within the container, we deploy
-a client process for task scheduling and configuration as well as the agent and the evaluation scripts.
-The VM is our main simulation environment: a Python Flask server acts as the bridge between the
-container and the VM by receiving commands from the client processes and executing them within
-the VM; it also sends observations and files back to the client.
+            The taxonomy covers two subsets of tasks --- skill retention and factual retention--- inspired by real-world use cases. 
+This categorization is inspired by real-world use cases and tasks where information needs to be extracted from from videos. 
+We define skill retention as the ability to learn from and use a given human demonstration to efficiently complete a task. For example, using YouTube tutorials or screen recordings of expert demonstrations to learn how to perform a task is a form of skill retention.
+On the other hand, 
+factual retention is the ability to retrieve information relevant to a user's specific question/task present in a video that may not be the video's main focus (e.g., an incidental detail). 
+For example, one might want to buy the shoes a particular NBA player is wearing that are shown within a short duration of a much longer basketball highlights video. 
+To complete the task, 
+the model must extract not only information about the specific player but also their shoes, even if this information is secondary to the main content of the video.
           </p>
           <p>
-            We use Azure Machine Learning jobs to parallelize the benchmark
-evaluation using compute instances. The process is similar to the local setup, but the VMs are
-instantiated and terminated with each experiment submission. We use the Azure Blob Store to
-manage the Windows 11 snapshot and output logs while the code is pre-configured in the Docker
-image. Tasks are distributed evenly among the workers, and the results are aggregated at the end of
-the run.
+            We map each of our video tutorials to the respective tasks in the WebArena and VisualWebArena task set to create 1,621 skill retention tasks. Thus, each WA/VWA task has an expert human demonstration attached to it. An agent should be able to process the video tutorial and complete the task at hand at a higher rate than without the video.
           </p>
+          <p>We created 400 original factual retention tasks based on these
+            same tutorials. The authors of each factual retention task also are tasked with creating \<strong>intermediate intents</strong> that test if the model can extract the information necessary to complete the
+            task. Each factual retention task also has a Q/A pair, where the agent is prompted with the video and a task-related question. This serves as a intermediate checkpoint to evaluate the model's ability to process information from the video, unrelated to generating actions or acting in the environment. Skill Retention tasks do not have intermediate intents as we deemed learning from human demonstrations do not requires needle-in-the-haystack type of information retrieval.</p>
+
+          <p>
+            Furthermore, we define types of factual retention tasks below:
+          </p>
+          <ul>
+            <li>Visual
+              Perception (Tasks that require OCR, Spatial Reasoning)</li>
+            <li>Audio Perception</li>
+            <li> Full Video Understanding (i.e., tasks
+              that require information across several parts of the video)</li>
+            <li>Temporal Reasoning (i.e., tasks
+              that require understanding the video with respect to time)</li>
+          </ul>
+
+          <p>We provide examples of each task in our defined taxonomy below.</p>
         </div>
       <!-- </div>
     </div> -->
